@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<h2 class="mb-4 fw-semibold">Operasi Aritmatika pada Citra</h2>
+
+<div class="card shadow-sm p-4 mb-5">
+    <form action="/operation/" enctype="multipart/form-data" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Pilih Gambar</label>
+            <input name="file" type="file" accept="image/*" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Pilih Operasi</label>
+            <select name="operation" class="form-select" required>
+                <option value="add">Tambah</option>
+                <option value="subtract">Kurang</option>
+                <option value="max">Max</option>
+                <option value="min">Min</option>
+                <option value="inverse">Inverse</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Nilai Operasi</label>
+            <input type="range" class="form-range" min="0" max="100" step="1" name="value" id="value" value="50" />
+            <div class="text-end">
+                <span class="badge bg-primary" id="valueOutput">50</span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Lakukan Operasi</button>
+    </form>
+</div>
+
+
+<h2 class="mb-4 fw-semibold">Operasi Logika pada Citra</h2>
+
+<div class="card shadow-sm p-4 mb-5">
+    <form action="/logic_operation/" enctype="multipart/form-data" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Gambar Utama</label>
+            <input name="file1" type="file" accept="image/*" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">
+                Gambar Kedua (Hanya untuk AND & XOR)
+            </label>
+            <input name="file2" type="file" accept="image/*" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Pilih Operasi</label>
+            <select name="operation" class="form-select" required>
+                <option value="not">NOT</option>
+                <option value="and">AND</option>
+                <option value="xor">XOR</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Lakukan Operasi Logika
+        </button>
+    </form>
+</div>
+
+
+<h2 class="mb-4 fw-semibold">Statistik Citra</h2>
+
+<div class="card shadow-sm p-4">
+    <form action="/statistics/" enctype="multipart/form-data" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Pilih Gambar</label>
+            <input name="file" type="file" accept="image/*" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Hitung Statistik
+        </button>
+    </form>
+</div>
+
+
+<script>
+    const slider = document.getElementById("value");
+    const output = document.getElementById("valueOutput");
+    slider.addEventListener("input", function () {
+        output.textContent = slider.value;
+    });
+</script>
+
+{% endblock %}

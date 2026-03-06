@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Operasi Logika - JTK PCD 2026</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .back {
+            margin-top: 15px;
+            display: block;
+            text-decoration: none;
+            color: #4a90e2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Operasi Logika Citra</h2>
+        <p><strong>JTK PCD 2026 - ERSYA - 241511072</strong></p>
+
+        <form action="/logic" method="post" enctype="multipart/form-data">
+
+            <!-- File Pertama (WAJIB) -->
+            <input type="file" name="file1" required>
+
+            <!-- File Kedua (OPSIONAL - untuk AND & XOR) -->
+            <input type="file" name="file2">
+
+            <select name="operation">
+                <option value="not">NOT (1 Citra)</option>
+                <option value="and">AND (2 Citra)</option>
+                <option value="xor">XOR (2 Citra)</option>
+            </select>
+
+            <button type="submit">Proses</button>
+        </form>
+
+        <a href="/" class="back">⬅ Kembali ke Home</a>
+    </div>
+
+</body>
+
+</html>
