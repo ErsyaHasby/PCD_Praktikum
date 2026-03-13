@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Zero Padding Citra{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Operasi Zero Padding pada Citra</h2>
+    <div class="alert alert-info mt-3">
+        Zero padding menambahkan border hitam (nilai 0) ke sekeliling gambar. Nilai padding diterapkan ke atas, bawah,
+        kiri, dan kanan.
+    </div>
+
+    <form action="/zero-padding/" enctype="multipart/form-data" method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="file" class="form-label">Pilih Gambar:</label>
+            <input id="file" name="file" type="file" accept="image/*" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="padding_size" class="form-label">Ukuran Padding (piksel):</label>
+            <input id="padding_size" name="padding_size" type="number" min="1" max="200" value="20" class="form-control"
+                required />
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Terapkan Zero Padding" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+{% endblock %}

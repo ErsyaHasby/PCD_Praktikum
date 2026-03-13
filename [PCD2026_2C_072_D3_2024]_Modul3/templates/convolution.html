@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Konvolusi Citra{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Operasi Konvolusi pada Citra</h2>
+    <div class="alert alert-info mt-3">
+        <h5>Penjelasan Jenis Kernel:</h5>
+        <ul>
+            <li><strong>Average (Blur):</strong> Menghaluskan gambar dengan merata-ratakan pixel sekitar</li>
+            <li><strong>Sharpen:</strong> Mempertajam gambar dengan meningkatkan kontras tepi</li>
+            <li><strong>Edge Detection:</strong> Mendeteksi dan menonjolkan tepi dalam gambar</li>
+        </ul>
+    </div>
+    <form action="/convolution/" enctype="multipart/form-data" method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="file" class="form-label">Pilih Gambar:</label>
+            <input name="file" type="file" accept="image/*" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="kernel_type" class="form-label">Pilih Jenis Kernel:</label>
+            <select name="kernel_type" class="form-select" required>
+                <option value="average">Average (Blur/Smoothing)</option>
+                <option value="sharpen">Sharpen (Penajaman)</option>
+                <option value="edge">Edge Detection (Deteksi Tepi)</option>
+            </select>
+        </div>
+        <div class="text-center">
+            <input type="submit" value="Terapkan Konvolusi" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Periodic Noise Reduction{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Periodic Noise Reduction</h2>
+    <div class="alert alert-info mt-3">
+        Proses ini mengurangi noise periodik pada domain frekuensi dengan masking di area pusat spektrum.
+    </div>
+
+    <form action="/periodic-noise/" enctype="multipart/form-data" method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="file" class="form-label">Pilih Gambar:</label>
+            <input id="file" name="file" type="file" accept="image/*" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="radius" class="form-label">Radius Mask:</label>
+            <input id="radius" name="radius" type="number" min="1" max="200" value="30" class="form-control" required />
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Kurangi Periodic Noise" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+{% endblock %}

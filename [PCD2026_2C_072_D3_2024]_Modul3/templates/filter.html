@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Filter Citra{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Operasi Filter pada Citra</h2>
+    <div class="alert alert-info mt-3">
+        Pilih jenis filter: Low-pass (haluskan), High-pass (tajamkan), atau Band-pass sederhana.
+    </div>
+
+    <form action="/filter/" enctype="multipart/form-data" method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="file" class="form-label">Pilih Gambar:</label>
+            <input id="file" name="file" type="file" accept="image/*" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="filter_type" class="form-label">Jenis Filter:</label>
+            <select id="filter_type" name="filter_type" class="form-select" required>
+                <option value="low">Low-pass (Gaussian Blur)</option>
+                <option value="high">High-pass (Sharpen Kernel)</option>
+                <option value="band">Band-pass Sederhana</option>
+            </select>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Terapkan Filter" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+{% endblock %}
